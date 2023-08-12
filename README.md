@@ -11,6 +11,8 @@ Usa inteligencia artificial basada en GPT-4 para buscar episodios del Metodo Reb
 * FastAPI
 * NextJS
 
+Se necesita python `>=3.9`. Para instalar las dependencias, crear un entorno virtual y ejecutar `pip install -r requirements.txt`
+
 ### Embeddings
 
 Este proyecto contiene las transcripciones de los primeros 54 episodios del Metodo Rebord hechas con Whisper, se encuentran en `ingestion/transcriptions` 
