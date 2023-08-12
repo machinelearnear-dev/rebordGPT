@@ -1,0 +1,24 @@
+.examples {
+    color: white
+}
+
+.links {
+    padding-right: 10px;
+}
+
+.link {
+    color: inherit;
+}
+
+@media only screen and (max-width: 468px) {
+    .examples {
+        display: flex;
+        flex-direction: column;
+        color: white;
+    }
+
+    .links {
+        color: inherit;
+        padding-bottom: 10px;
+    }
+}

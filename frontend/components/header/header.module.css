@@ -1,0 +1,29 @@
+.header {
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    padding: 20px;
+    border-bottom: 2px solid #ccc;
+    z-index: 9999;
+    /* bring to front */
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background-color: var(--header-color);
+    /* add background color */
+}
+
+.logo {
+    padding-right: 20px;
+}
+
+.title {
+    margin-bottom: 0px !important;
+}
+
+.titleText {
+    text-decoration: none !important;
+    color: inherit;
+}

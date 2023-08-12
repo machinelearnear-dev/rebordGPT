@@ -1,0 +1,27 @@
+.main {
+    overflow-y: auto;
+    background-image: url("../../public/background.jpg") !important;
+    background-size: cover !important;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.main::before {
+    background-color: rgba(0, 0, 0, 0.85);
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+}
+
+.container {
+    height: 100vh;
+    /* for shorter content */
+    display: flex;
+    flex-direction: column;
+}
