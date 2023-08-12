@@ -2,6 +2,9 @@
 
 Usa inteligencia artificial basada en GPT-4 para buscar episodios del Metodo Rebord
 
+## Video Tutorial en YouTube
+[![[#95] Hacemos una app paso a paso con GPT4, LangChain, Whisper, y más](https://img.youtube.com/vi/1Rpn4lrshlo/0.jpg)](https://www.youtube.com/watch?v=1Rpn4lrshlo)
+
 ### Detalles tecnicos
 * Langchain / OpenAI
 * Chroma (vector store)
