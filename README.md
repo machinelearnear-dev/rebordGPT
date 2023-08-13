@@ -28,7 +28,7 @@ Chroma corre localmente con este proyecto, y la base de datos se encuentra en el
 
 
 ### Frontend - NextJS
-El frontend se ha hecho de una manera estatica, hay que generar el html de antemano para que sea servido por FastAPI. Hay que ejecutar el siguiente comando `npm run build` la primera vez que se clona el proyecto y cada vez que se hace un cambio en el frontend.
+El frontend se ha hecho de una manera estatica, hay que generar el html de antemano para que sea servido por FastAPI. Hay que ejecutar el siguiente comando `npm run build` cada vez que se hace un cambio en el frontend. El repo contiene la version estatica del frontend por lo que no es necesario ejecutar este comando cuando se clona el proyecto.
 
 
 ### Backend - FastAPI
