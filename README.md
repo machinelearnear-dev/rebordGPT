@@ -13,6 +13,8 @@ Usa inteligencia artificial basada en GPT-4 para buscar episodios del Metodo Reb
 
 Se necesita python `>=3.9`. Para instalar las dependencias, crear un entorno virtual y ejecutar `pip install -r requirements.txt`
 
+**No olvidarse de crear un archivo `.env` en el directorio root y agregar el token de OpenAI en la variable de entorno `OPENAI_API_KEY` en la forma `OPENAI_API_KEY=<token>`**
+
 ### Embeddings
 
 Este proyecto contiene las transcripciones de los primeros 68 episodios del Metodo Rebord hechas con Whisper, se encuentran en `ingestion/transcriptions` 
