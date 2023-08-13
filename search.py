@@ -13,6 +13,7 @@ import os
 class Search():
 
     FILTER_THRESHOLD = 0.35
+    MAX_RESULTS_SIMILARITY_SEARCH = 10
 
     def __init__(self) -> None:
         load_dotenv()
@@ -26,7 +27,7 @@ class Search():
             persist_directory=persist_directory, embedding_function=embedding)
 
     def search(self, query: str = None):
-        results = self.vectordb.similarity_search_with_score(query, k=6)
+        results = self.vectordb.similarity_search_with_score(query, k=self.MAX_RESULTS_SIMILARITY_SEARCH)
         filtered_results = [
             r for r in results if r[1] <= self.FILTER_THRESHOLD]
         docs = list(map(lambda result: result[0], filtered_results))
