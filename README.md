@@ -15,7 +15,7 @@ Se necesita python `>=3.9`. Para instalar las dependencias, crear un entorno vir
 
 ### Embeddings
 
-Este proyecto contiene las transcripciones de los primeros 54 episodios del Metodo Rebord hechas con Whisper, se encuentran en `ingestion/transcriptions` 
+Este proyecto contiene las transcripciones de los primeros 68 episodios del Metodo Rebord hechas con Whisper, se encuentran en `ingestion/transcriptions` 
 
 Se generaron embeddings de estas transcripciones usando OpenAI y Chroma como base de datos de vectores.
 Chroma corre localmente con este proyecto, y la base de datos se encuentra en el directorio `db`
