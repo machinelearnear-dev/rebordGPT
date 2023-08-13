@@ -2,20 +2,14 @@ from langchain.prompts import PromptTemplate
 from langchain.prompts import FewShotPromptTemplate
 
 
-def get_generic_prompt_spanish():
-    prompt_template = """Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
-                        {context}
-                        Question: {question}
-                        ALWAYS answer in Spanish, in a strong argentinian accent.
-                        """
-    return PromptTemplate(template=prompt_template, input_variables=["context", "question"])
-
-
 def get_assistant_prompt_spanish():
     prompt_template = """You are a helpful assistant that accurately answers queries using the following pieces of context: "{context}"
+                        This context contains conversations between different people. In your answers do not refer to a particular speaker as the conversations will involve multiple speakers.
+                        Do not refer to a conversation in singular, as the context will contain multiple conversations.
+                        Do not mention that a context has been provided. Answer the questions as if they were coming straight from you.
                         Use the context provided to form your answer, but avoid copying word-for-word from the text. Try to use your own words when possible. Keep your answer under 5 sentences.
                         If you don't know the answer, just say that you don't know, don't try to make up an answer.
-                        Be accurate, helpful, concise, and clear. Use the given context to provide an answer to the question: "{question}". 
+                        Be accurate, helpful, concise, and clear. Always use the given context to provide an answer to the question: "{question}". 
                         ALWAYS answer in Spanish, in a strong argentinian accent.
                         """
     return PromptTemplate(template=prompt_template, input_variables=["context", "question"])
