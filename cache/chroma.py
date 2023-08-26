@@ -1,6 +1,5 @@
 """
-Extending langchain class RedisSemanticCache to support Question and Answering retrieval.
-This class overrides `lookup` and `update` methods, extracting the query from the prompt.
+Semantic cache class using Chroma. It implements langchain BaseCache interface.
 The prompt must have the query between <query> </query> tags
 We only need to cache the query, not the whole prompt with the chunks.
 """

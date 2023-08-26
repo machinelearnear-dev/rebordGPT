@@ -40,9 +40,9 @@ class Search():
         else:
             print("Using non-diarized db")
             prompt = get_assistant_prompt_spanish()
-        # llm = ChatOpenAI(model_name="gpt-4", temperature=1)
         
         langchain.llm_cache = ChromaSemanticCache(embedding=OpenAIEmbeddings(), score_threshold=0.15)
+        # llm = ChatOpenAI(model_name="gpt-4", temperature=1) # TODO - haven' figured out yet how to use a chat model with the semantic cache. 
         llm = OpenAI(model_name="gpt-4", temperature=1)
         chain = load_qa_chain(llm, chain_type="stuff",
                               prompt=prompt, verbose=False)
