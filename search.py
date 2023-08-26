@@ -6,6 +6,9 @@ from prompts import get_assistant_prompt_spanish
 from prompts import get_assistant_prompt_spanis_one_shot
 from langchain.chains.question_answering import load_qa_chain
 from langchain.chat_models import ChatOpenAI
+from cache.chroma import ChromaSemanticCache
+import langchain
+from langchain.llms import OpenAI
 
 import os
 
@@ -37,7 +40,10 @@ class Search():
         else:
             print("Using non-diarized db")
             prompt = get_assistant_prompt_spanish()
-        llm = ChatOpenAI(model_name="gpt-4", temperature=1)
+        # llm = ChatOpenAI(model_name="gpt-4", temperature=1)
+        
+        langchain.llm_cache = ChromaSemanticCache(embedding=OpenAIEmbeddings(), score_threshold=0.15)
+        llm = OpenAI(model_name="gpt-4", temperature=1)
         chain = load_qa_chain(llm, chain_type="stuff",
                               prompt=prompt, verbose=False)
         answer = chain(
