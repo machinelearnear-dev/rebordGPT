@@ -1,6 +1,6 @@
 """
 Extending langchain class RedisSemanticCache to support Question and Answering retrieval.
-This class overrides `lookup` and `update` methods, to extract que query from the prompt.
+This class overrides `lookup` and `update` methods, extracting the query from the prompt.
 The prompt must have the query between <query> </query> tags
 We only need to cache the query, not the whole prompt with the chunks.
 """
