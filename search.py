@@ -6,6 +6,9 @@ from prompts import get_assistant_prompt_spanish
 from prompts import get_assistant_prompt_spanis_one_shot
 from langchain.chains.question_answering import load_qa_chain
 from langchain.chat_models import ChatOpenAI
+from cache.redis import RedisSemanticCacheOnlyPrompt
+import langchain
+from langchain.llms import OpenAI
 
 import os
 
@@ -13,7 +16,7 @@ import os
 class Search():
 
     FILTER_THRESHOLD = 0.35
-    MAX_RESULTS_SIMILARITY_SEARCH = 10
+    MAX_RESULTS_SIMILARITY_SEARCH = 6
 
     def __init__(self) -> None:
         load_dotenv()
@@ -37,7 +40,10 @@ class Search():
         else:
             print("Using non-diarized db")
             prompt = get_assistant_prompt_spanish()
-        llm = ChatOpenAI(model_name="gpt-4", temperature=1)
+        
+        langchain.llm_cache = RedisSemanticCacheOnlyPrompt(
+        redis_url="redis://localhost:6379", embedding=OpenAIEmbeddings())
+        llm = OpenAI(model_name="gpt-4", temperature=1)
         chain = load_qa_chain(llm, chain_type="stuff",
                               prompt=prompt, verbose=False)
         answer = chain(
