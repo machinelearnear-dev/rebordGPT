@@ -21,30 +21,14 @@ from langchain.embeddings.base import Embeddings
 RETURN_VAL_TYPE = Sequence[Generation]
 
 class ChromaSemanticCache(BaseCache):
-    """Cache that uses Redis as a vector-store backend."""
+    """Cache that uses Chroma as a vector-store backend."""
 
     def __init__(self, embedding: Embeddings, score_threshold: float = 0.2):
         """Initialize by passing in the `init` GPTCache func
 
         Args:
-            redis_url (str): URL to connect to Redis.
             embedding (Embedding): Embedding provider for semantic encoding and search.
             score_threshold (float, 0.2):
-
-        Example:
-
-        .. code-block:: python
-
-            import langchain
-
-            from langchain.cache import RedisSemanticCache
-            from langchain.embeddings import OpenAIEmbeddings
-
-            langchain.llm_cache = RedisSemanticCache(
-                redis_url="redis://localhost:6379",
-                embedding=OpenAIEmbeddings()
-            )
-
         """
         self.embedding = embedding
         self.score_threshold = score_threshold
