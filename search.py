@@ -9,6 +9,7 @@ from langchain.chat_models import ChatOpenAI
 from cache.chroma import ChromaSemanticCache
 import langchain
 from langchain.llms import OpenAI
+from typing import List
 
 import os
 
@@ -41,6 +42,10 @@ class Search():
             print("Using non-diarized db")
             prompt = get_assistant_prompt_spanish()
         
+        if(len(docs) == 0):
+            print("No sources found")
+            return {"answer": "No se encontraron resultados", "sources": []}
+
         langchain.llm_cache = ChromaSemanticCache(embedding=OpenAIEmbeddings(), score_threshold=0.15)
         # llm = ChatOpenAI(model_name="gpt-4", temperature=1) # TODO - haven' figured out yet how to use a chat model with the semantic cache. 
         llm = OpenAI(model_name="gpt-4", temperature=1)
@@ -52,11 +57,11 @@ class Search():
 
     def build_response(self, answer, docs):
         if not "output_text" in answer:
-            return {"answer": "No answer found", "sources": "No sources found"}
+            return {"answer": "No se encontraron resultados", "sources": []}
         answer = answer.get("output_text")
         return {"answer": answer, "sources": self.build_sources(docs)}
-
-    def build_sources(self, docs):
+    
+    def build_sources(self, docs) -> List:
         sources = []
         for doc in docs:
             metadata = doc.metadata

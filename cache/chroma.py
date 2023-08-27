@@ -66,10 +66,12 @@ class ChromaSemanticCache(BaseCache):
         if index_name in self._cache_dict:
             self._cache_dict[index_name].delete_collection()
 
-    def extract_query_from_prompt(self, prompt:str):
+    def extract_query_from_prompt(self, prompt:str) -> str:
         reg_str = "<query>(.*?)</query>"
-        # TODO - make sure the line below doesn't throw an exception
+        if(len(re.findall(reg_str, prompt)) == 0):
+            return ""
         return str(re.findall(reg_str, prompt)[0])
+        
 
     def lookup(self, prompt: str, llm_string: str) -> Optional[RETURN_VAL_TYPE]:
         """Look up based on prompt"""
