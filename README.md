@@ -22,9 +22,14 @@ Este proyecto contiene las transcripciones de los primeros 68 episodios del Meto
 Se generaron embeddings de estas transcripciones usando OpenAI y Chroma como base de datos de vectores.
 Chroma corre localmente con este proyecto, y la base de datos se encuentra en el directorio `db`
 
+### Semantic cache
+
+Se ha implementado un *semantic cache*, vectorizando las preguntas y guardando los embeddings usando chroma, en el directorio `cache_chroma`. De esta forma, para preguntas con significado semantico similar, no se llamara al LLM y se usara la respuesta cacheada, mejorando los tiempos de respuesta y optimizando costos de llamadas a la API de OpenAI.
+Langchain actualmente no soporta semantic caching usando Chroma, por lo que en este proyecto hemos creado una nueva clase `ChromaSemanticCache` que implementa la interfas `BaseCache` de Langchain.
+
 [Langchain QA docs](https://python.langchain.com/docs/use_cases/question_answering/)
 
-![My Image](images/architecture_v2.png)
+![My Image](images/architectureCaching.png)
 
 
 ### Frontend - NextJS

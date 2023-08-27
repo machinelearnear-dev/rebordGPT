@@ -139,3 +139,5 @@ Spacefile
 
 /ingestion/audio/*
 .vscode/
+
+cache_chroma/
