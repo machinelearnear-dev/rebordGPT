@@ -30,7 +30,7 @@ class ChromaSemanticCache(BaseCache):
     """Cache that uses Chroma as a vector-store backend."""
 
     def __init__(self, embedding: Embeddings, score_threshold: float = 0.2, persist_directory="cache_chroma"):
-        """Initialize by passing in the `init` GPTCache func
+        """Initialize
 
         Args:
             embedding (Embedding): Embedding provider for semantic encoding and search.
